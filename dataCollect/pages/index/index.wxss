@@ -1,0 +1,12 @@
+radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.quest {
+    margin: 40rpx 20rpx;
+}
+
+.quest .title {
+    margin-bottom: 10rpx;
+}

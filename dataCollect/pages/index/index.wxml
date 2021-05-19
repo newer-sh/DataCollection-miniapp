@@ -1,0 +1,21 @@
+
+<form bindsubmit="onSubmitEvent">
+  <view class="quest">
+    <radio-group name="situation" bindchange="onSituChangeEvent">
+      <view class="title">您当前是在什么场景？</view>
+      <label wx:for="{{situations}}" wx:for-item="item" wx:key="{{item.id}}">
+        <radio value="{{item.name}}" /> {{item.name}}
+      </label>
+    </radio-group>
+    <radio-group name="request" bindchange="onRequChangeEvent">
+      <view class="title">您当前有什么需求？</view>
+      <label wx:for="{{requests}}" wx:for-item="item" wx:key="{{item.id}}">
+        <radio value="{{item.name}}" /> {{item.name}}
+      </label>
+    </radio-group>
+  </view>
+
+
+
+<button form-type="submit" type="primary" bindtap="submit">提交</button>
+</form>
