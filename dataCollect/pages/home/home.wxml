@@ -1,0 +1,18 @@
+<!--未登录-->
+<view wx:if="{{!loginOK}}">
+    <button class="zeche" type="primary" bindtap="onTapLogin">
+        登陆
+    </button>
+    <button class="zeche" type="primary" bindtap="onTapRegister">
+        注册
+    </button>
+</view>
+
+<view wx:else class="login-ok">
+    <view class="container">
+        <view>您已登陆</view>
+        <view>{{name}}</view>
+    </view>
+    <button type="primary" bindtap="toIndex">前往主界面</button>
+    <button type="primary" bindtap="tuichu" class="logout">退出登录</button>
+</view>

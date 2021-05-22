@@ -1,0 +1,25 @@
+/* dataCollect/pages/exit.wxss */
+.container{
+  margin-top: 400rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container .success{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30rpx;
+}
+
+.container .exit{
+  height: 100rpx;
+  background-color: rgb(26, 173, 25);
+  line-height: 100rpx;
+  text-align: center;
+  font-size: large;
+  color: white;
+}

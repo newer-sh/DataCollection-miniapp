@@ -1,0 +1,8 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+    <view>请输入手机号</view>
+    <input bindinput="getNumber"></input>
+    <view>请输入密码</view>
+    <input type="password" bindinput="getPassword"></input>
+    <button type="primary" bindtap="login">登陆</button>
+</view>

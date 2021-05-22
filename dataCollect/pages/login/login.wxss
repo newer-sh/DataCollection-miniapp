@@ -1,0 +1,11 @@
+/* pages/login/login.wxss */
+input {
+    border:gainsboro 1px solid;
+    margin: 20rpx;
+    border-radius: 10rpx;
+    height: 2rem;
+    min-height: 2rem;
+}
+view {
+    margin: 20rpx;
+}

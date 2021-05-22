@@ -8,7 +8,7 @@ Page({
    */
   data: {
     time: null,
-    //addr: null,
+    addr: null,
     situations:[
       {
         "id": 1,
@@ -76,6 +76,9 @@ Page({
       },{
         "id": 9,
         "name": "看电影"
+      },{
+        "id": 10,
+        "name": "办公"
       }
     ]
     //situation:"",
@@ -87,8 +90,8 @@ Page({
    */
   onLoad: function (options) {
 
-    //checkPermission(this);
-    
+    checkPermission(this);
+
    /**
     * 设置时间
     */
@@ -105,16 +108,39 @@ Page({
    */
   onSubmitEvent: function(event){
     console.log(event);
+    let user = wx.getStorageSync('user');
     const time = this.data.time;
+    const addr = this.data.addr;
     const situation = event.detail.value.situation;
     const request = event.detail.value.request;
+
     db.collection('bishe').add({
       data:{
         time: time,
+        addr: addr,
         situation: situation,
-        request: request
+        request: request,
+        name: user.name,
+        job: user.job,
+        income: user.income,
+        number: user.number
+      },success(res){
+        wx.showToast({
+          title: '提交成功',
+        });
+        setTimeout(function(){
+          wx.navigateTo({
+            url: '../exit/exit',
+          })
+        },1500)
+      },fail(res){
+        console.log("提交失败", res);
+        wx.showModal({
+          title: "错误",
+          content: "上传失败，请检查网络"
+        })
       }
-    })
+    });
   },
 
   onSituChangeEvent: function(event){
@@ -126,11 +152,13 @@ Page({
   }
 
 })
-/*
-function checkPermission(res) {
+
+function checkPermission(that) {
   console.log("-------------checkPermission----------");
+  console.log(that)
   wx.getSetting({
     success:function(res){
+      console.log(res)
       if (!res.authSetting['scope.userLocation']){
         console.log("-------------不满足scope.userLocation权限----------");
         //申请授权
@@ -141,7 +169,20 @@ function checkPermission(res) {
           }
         })
       }
+      //设置地点
+      wx.getLocation({
+        type: 'wgs84',
+        success (res){
+          console.log("获取地理位置成功",res)
+          that.setData({
+            addr: "latitude:" + res.latitude + ", longitude:" + res.longitude
+          })
+        },
+        fail(error){
+          console("获取地理位置失败", error)
+        }
+      })
     }
   })
-}*/
+}
 

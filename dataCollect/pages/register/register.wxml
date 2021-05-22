@@ -1,0 +1,25 @@
+<!--pages/register/register.wxml-->
+<view class="container">
+    <form bindsubmit="onSubmitUserEvent">
+        <view >请设置您的手机号</view>
+        <input type="text" class="input" bindinput="getAccount"></input>
+        <view >请设置您的密码</view>
+        <input type="password" class="input" bindinput="getPassword1"></input>
+        <view >请再次输入您的密码</view>
+        <input type="password" class="input" bindinput="getPassword2"></input>
+        <view >请输入您的姓名</view>
+        <input type="text" class="input" bindinput="getName"></input>
+        <view >请输入您的职业</view>
+        <input type="text" class="input" bindinput="getJob"></input>
+        <view >请选择您的月收入水平</view>
+        <radio-group bindchange="onIncomeChangeEvent">
+            <label wx:for="{{incomes}}" wx:for-item="item" wx:key="{{item.id}}">
+                <radio value="{{item.value}}" /> {{item.value}}
+            </label>
+        </radio-group>
+
+        <button type="primary" form-type="submit">
+            注册
+        </button>
+    </form>
+</view>

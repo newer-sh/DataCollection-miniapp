@@ -1,0 +1,8 @@
+<!--dataCollect/pages/exit.wxml-->
+<view class="container">
+  <view class="success">提交成功</view>
+  <view class="success">请在场景或需求变更后再次打开小程序</view>
+  <view class="success">感谢您的参与</view>
+  <navigator class="exit" open-type="exit" target="miniProgram">点击退出</navigator>
+</view>
+

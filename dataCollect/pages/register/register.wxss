@@ -1,0 +1,23 @@
+/* pages/register/register.wxss */
+radio-group{
+    margin-left: 10rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    border: 1px solid gainsboro;
+    margin: 15rpx;
+    border-radius: 10rpx;
+    height: 2rem;
+    min-height: 2rem;
+}
+
+.container{
+    margin-top: 15rpx;
+}
+
+.container view{
+    margin-left: 20rpx;
+}
+
